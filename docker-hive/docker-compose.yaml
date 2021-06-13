@@ -1,0 +1,44 @@
+version: "3"
+services:
+    hadoop-master:
+        image: hadoop-test:2.0
+        container_name: hadoop-master
+        networks: 
+            - hadoop
+        ports: 
+            - "18088:8088"
+            - "19870:9870"
+        command:  ["sh", "-c", "service ssh start; while true; do sleep 1; done"]
+
+    hadoop-slave-0:
+        image: hadoop-test:2.0
+        container_name: hadoop-slave-0
+        networks: 
+            - hadoop
+        command:  ["sh", "-c", "service ssh start; while true; do sleep 1; done"]
+
+
+    hadoop-slave-1:
+        image: hadoop-test:2.0
+        container_name: hadoop-slave-1
+        networks: 
+            - hadoop
+        command:  ["sh", "-c", "service ssh start; while true; do sleep 1; done"]
+
+    hadoop-slave-2:
+        image: hadoop-test:2.0
+        container_name: hadoop-slave-2
+        networks: 
+            - hadoop
+        command:  ["sh", "-c", "service ssh start; while true; do sleep 1; done"]
+
+    hadoop-slave-3:
+        image: hadoop-test:2.0
+        container_name: hadoop-slave-3
+        networks: 
+            - hadoop
+        command:  ["sh", "-c", "service ssh start; while true; do sleep 1; done"]
+
+networks:
+    hadoop:
+
